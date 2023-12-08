@@ -1,12 +1,37 @@
+"use client"
+
 import Link from "next/link";
-import RootLayout from "../layout";
 import PageBtn from "@/components/home/PageBtn";
 import FilterClubsBtn from "@/components/clubs/FilterClubsBtn";
 import ClubsCard from "@/components/clubs/ClubsCard";
+import { useEffect, useState } from "react";
 
 export default function Clubs(){
+
+    const [clubData, setClubData] = useState([]);
+
+    useEffect(() => {
+        async function fetchClubsData() {
+          try {
+            const response = await fetch('/api/clubs');
+            if (response.ok) {
+              const data = await response.json();
+              setClubData(data.clubs);
+            } else {
+              console.error('Failed to fetch club data');
+            }
+          } catch (error) {
+            console.error('Error fetching clubs:', error);
+          }
+        }
+    
+        fetchClubsData();
+      }, []);
+
+
+
     return(
-        <RootLayout showSidebar={true}>
+
             <main>
             <div className="flex flex-col md:ml-60 md:pl-6 mt-16 md:mt-20 md:mr-20 lg:mr-[30%]">
                     <div className="flex flex-col">
@@ -23,24 +48,16 @@ export default function Clubs(){
                         </div>
 
                         <div className="mb-16 px-2">
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
-                        <ClubsCard />
+                            {
+                                clubData.map((club, index) => (
+                                    <ClubsCard key={index} title={club.clubName} clubJoined={club.membersJoined} clubDisc={club.shortNote} />
+                                ))
+                            }
                         </div>
                     </div>
 
                     
                 </div>                
             </main>
-        </RootLayout>
     )
 }

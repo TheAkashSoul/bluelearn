@@ -10,11 +10,11 @@ export const metadata = {
   description: 'Bluelearn clone web application with more features',
 }
 
-export default function RootLayout({ children, showSidebar = true }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        { showSidebar && <Sidebar /> }
+        <Sidebar />
         <Navbar />
         {children}
       </body>

@@ -2,8 +2,8 @@ import RootLayout from "../layout";
 
 export default function Work(){
     return(
-        <RootLayout showSidebar={true}>
+        <main>
             <h1 className="mt-20">Work page</h1>
-        </RootLayout>
+        </main>
     )
 }

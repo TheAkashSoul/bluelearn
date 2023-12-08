@@ -9,7 +9,6 @@ export default function Home(){
     
 
     return(
-        <RootLayout showSidebar={true}>
             <main>
                 <div className="flex flex-col md:ml-60 md:pl-6 mt-16 md:mt-20 md:mr-20 lg:mr-[30%]">
                     <div className="flex flex-col">
@@ -39,6 +38,5 @@ export default function Home(){
 
                 
             </main>
-        </RootLayout>
     )
 }
