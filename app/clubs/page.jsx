@@ -36,10 +36,10 @@ export default function Clubs(){
             <div className="flex flex-col md:ml-60 md:pl-6 mt-16 md:mt-20 md:mr-20 lg:mr-[30%]">
                     <div className="flex flex-col">
 
-                        <div className="flex flex-row gap-4 items-center justify-evenly h-12 w-full border-b border-black">
+                        <div className="flex flex-row gap-4 items-center justify-between px-20 h-12 w-full">
 
                         <Link href="/home"><PageBtn BtnName = "Discussions" /></Link>
-                        <Link href="/clubs"><PageBtn BtnName = "Clubs" /></Link>
+                        <Link className="font-bold border-b border-black" href="/clubs"><PageBtn BtnName = "Clubs" /></Link>
 
                         </div>
 
