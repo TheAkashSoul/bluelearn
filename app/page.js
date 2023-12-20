@@ -11,9 +11,10 @@ export default function Home() {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   router.push("/home")
-  // },[])
+  useEffect(() => {
+    router.push("/home")
+  },[])
+  
   return (
       <main className="mt-20 ml-60">
         <div className='h-10 w-full bg-black text-white flex items-center justify-center rounded-full '>
